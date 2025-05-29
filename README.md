@@ -2,6 +2,9 @@
 
 A powerful CLI tool that converts natural language descriptions into shell commands using the Cerebras AI API. Built with Bun and TypeScript for fast performance and excellent developer experience.
 
+[![npm version](https://badge.fury.io/js/void-cmd.svg)](https://www.npmjs.com/package/void-cmd)
+[![npm downloads](https://img.shields.io/npm/dm/void-cmd.svg)](https://www.npmjs.com/package/void-cmd)
+
 ## ✨ Features
 
 - 🤖 **AI-Powered Command Generation** - Convert natural language to shell commands using Cerebras AI
@@ -13,10 +16,14 @@ A powerful CLI tool that converts natural language descriptions into shell comma
 - 🌍 **Global CLI** - Install once, use anywhere with `vcmd`
 - ⚙️ **Interactive Configuration** - Easy setup with guided prompts
 - 💬 **Natural Syntax** - Use intuitive "can you" syntax or direct requests
+- 🔄 **Auto-Update** - Keep your CLI tool up to date with built-in update command
 
 ## 🚀 Quick Start
 
 ### Install from npm
+
+**📦 Package:** [void-cmd on npm](https://www.npmjs.com/package/void-cmd)
+
 ```bash
 # Install globally with npm
 npm install -g void-cmd
@@ -33,8 +40,8 @@ pnpm install -g void-cmd
 
 ### Or Install from Source
 ```bash
-git clone <repository-url>
-cd my-bun-cli
+git clone https://github.com/xptea/vcmd.git
+cd vcmd
 bun install
 npm run install-global
 ```
@@ -79,15 +86,19 @@ ping 1.1.1.1.1  # This fails
 vcmd -e "ping 1.1.1.1.1"  # Get AI analysis and fixes
 ```
 
-### Configuration
+### Updates & Configuration
 ```bash
 vcmd -settings    # Configure API key, model, etc.
+vcmd -update      # Check for updates
+vcmd -update --auto  # Automatically update
 vcmd -help        # Show help
 ```
 
-## 📦 Installation Methods
+## 📦 Installation & Package Info
 
-The package is published as `void-cmd` but installs the `vcmd` command:
+**Package Name:** `void-cmd`  
+**Command Name:** `vcmd`  
+**NPM Package:** https://www.npmjs.com/package/void-cmd
 
 ```bash
 # All of these install the 'vcmd' command globally:
@@ -179,6 +190,23 @@ Settings are stored in `~/.vcmd-settings.json`:
 3. Generate an API key
 4. Run `vcmd -settings` to configure
 
+## 🔄 Keeping Updated
+
+VCMD includes a built-in update system:
+
+```bash
+# Check for updates
+vcmd -update
+
+# Automatically update to latest version
+vcmd -update --auto
+
+# Manual update
+npm update -g void-cmd
+# or
+bun update -g void-cmd
+```
+
 ## 🔧 Development
 
 ```bash
@@ -204,6 +232,8 @@ npm run uninstall-global
 | `vcmd -e` | Analyze command interactively |
 | `vcmd -e "command"` | Analyze specific command |
 | `vcmd -settings` | Configure API key and settings |
+| `vcmd -update` | Check for updates |
+| `vcmd -update --auto` | Automatically update |
 | `vcmd -help` | Show help information |
 
 ## 🎯 Example Commands
@@ -252,10 +282,21 @@ vcmd -e "your-failed-command"
 vcmd -e
 ```
 
+### Update Issues
+```bash
+# Check current version
+vcmd -update
+
+# Force update
+npm update -g void-cmd
+# or
+bun update -g void-cmd
+```
+
 ### Permission Issues
 ```bash
 # If global install fails
-sudo npm run install-global
+sudo npm install -g void-cmd
 
 # Or use local development
 bun run dev [your command]
@@ -265,12 +306,12 @@ bun run dev [your command]
 
 ```bash
 # Remove global command
-npm run uninstall-global
+npm uninstall -g void-cmd
+# or
+bun remove -g void-cmd
 
-# Remove settings
+# Remove settings and history
 rm ~/.vcmd-settings.json
-
-# Remove command history
 rm ~/.vcmd-history.json
 ```
 
@@ -286,8 +327,8 @@ We welcome contributions! Here's how:
 
 ### Development Setup
 ```bash
-git clone <your-fork>
-cd my-bun-cli
+git clone https://github.com/xptea/vcmd.git
+cd vcmd
 bun install
 bun run dev
 ```
@@ -295,6 +336,12 @@ bun run dev
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔗 Links
+
+- **NPM Package:** https://www.npmjs.com/package/void-cmd
+- **GitHub Repository:** https://github.com/xptea/vcmd
+- **Bug Reports:** https://github.com/xptea/vcmd/issues
 
 ## 🙏 Acknowledgments
 
