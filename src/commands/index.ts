@@ -3,6 +3,7 @@ import { ConvertCommand } from './convert';
 import { SettingsCommand } from './settings';
 import { HelpCommand } from './help';
 import { ExplainCommand } from './explain';
+import { UpdateCommand } from './update';
 
 class CommandManager {
     private commands: Map<string, Command>;
@@ -17,6 +18,7 @@ class CommandManager {
         this.register(new SettingsCommand());
         this.register(new HelpCommand());
         this.register(new ExplainCommand());
+        this.register(new UpdateCommand());
     }
 
     register(command: Command): void {
@@ -42,3 +44,4 @@ export { ConvertCommand } from './convert';
 export { SettingsCommand } from './settings';
 export { HelpCommand } from './help';
 export { ExplainCommand } from './explain';
+export { UpdateCommand } from './update';

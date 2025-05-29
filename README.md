@@ -16,24 +16,38 @@ A powerful CLI tool that converts natural language descriptions into shell comma
 
 ## 🚀 Quick Start
 
-1. **Clone and Install**
-   ```bash
-   git clone <repository-url>
-   cd my-bun-cli
-   bun install
-   npm run install-global
-   ```
+### Install from npm
+```bash
+# Install globally with npm
+npm install -g void-cmd
 
-2. **Configure API Key**
-   ```bash
-   vcmd -settings
-   ```
+# Install globally with Bun
+bun install -g void-cmd
 
-3. **Start Using**
-   ```bash
-   vcmd can you list all files
-   vcmd make sure that ip 1.1.1.1 is online
-   ```
+# Install globally with yarn
+yarn global add void-cmd
+
+# Install globally with pnpm
+pnpm install -g void-cmd
+```
+
+### Or Install from Source
+```bash
+git clone <repository-url>
+cd my-bun-cli
+bun install
+npm run install-global
+```
+
+### Configure and Use
+```bash
+# Configure API key
+vcmd -settings
+
+# Start using
+vcmd can you list all files
+vcmd make sure that ip 1.1.1.1 is online
+```
 
 ## 📖 Usage
 
@@ -70,6 +84,20 @@ vcmd -e "ping 1.1.1.1.1"  # Get AI analysis and fixes
 vcmd -settings    # Configure API key, model, etc.
 vcmd -help        # Show help
 ```
+
+## 📦 Installation Methods
+
+The package is published as `void-cmd` but installs the `vcmd` command:
+
+```bash
+# All of these install the 'vcmd' command globally:
+npm install -g void-cmd
+bun install -g void-cmd
+yarn global add void-cmd
+pnpm install -g void-cmd
+```
+
+After installation, use the `vcmd` command anywhere in your terminal.
 
 ## 🛠️ Command Analysis Features
 

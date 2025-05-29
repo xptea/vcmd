@@ -1,5 +1,5 @@
 {
-  "name": "vcmd",
+  "name": "void-cmd",
   "version": "1.0.0",
   "description": "AI-powered CLI tool that converts natural language to shell commands using Cerebras API",
   "main": "dist/index.js",
@@ -40,7 +40,9 @@
     "automation",
     "developer-tools",
     "terminal",
-    "bash"
+    "bash",
+    "vcmd",
+    "void-cmd"
   ],
   "author": {
     "name": "VoidWorks",
@@ -49,12 +51,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/vcmd.git"
+    "url": "https://github.com/xptea/vcmd.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/vcmd/issues"
+    "url": "https://github.com/xptea/vcmd/issues"
   },
-  "homepage": "https://github.com/yourusername/vcmd#readme",
+  "homepage": "https://github.com/xptea/vcmd#readme",
   "engines": {
     "node": ">=16.0.0"
   },

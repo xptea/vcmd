@@ -26,6 +26,17 @@ const parseArguments = (): { command: string; options: any } => {
         };
     }
 
+    if (firstArg === '-update' || firstArg === '--update') {
+        const restArgs = args.slice(1);
+        return { 
+            command: 'update', 
+            options: { 
+                _: restArgs,
+                auto: restArgs.includes('--auto')
+            } 
+        };
+    }
+
     if (firstArg === '-h' || firstArg === '-help' || firstArg === '--help') {
         return { command: 'help', options: {} };
     }

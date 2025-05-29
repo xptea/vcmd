@@ -14,6 +14,7 @@ export class HelpCommand implements Command {
         log('  vcmd -settings               # Configure API key');
         log('  vcmd -e                      # Analyze a command (interactive)');
         log('  vcmd -e "command"            # Analyze a specific command');
+        log('  vcmd -update                 # Check for updates');
         log('  vcmd -help                   # Show this help');
         log('\n💡 Examples:');
         log('  vcmd list all files in current directory');
@@ -27,6 +28,9 @@ export class HelpCommand implements Command {
         log('  vcmd -e                      # Interactive: asks for command to analyze');
         log('  vcmd -e "ping 1.1.1.1.1"    # Analyze specific command');
         log('  vcmd -e ping 1.1.1.1.1      # Analyze command (without quotes)');
+        log('\n🔄 Updates:');
+        log('  vcmd -update                 # Check for updates');
+        log('  vcmd -update --auto          # Automatically update if available');
         log('\n🛡️  Safety Levels:');
         log('  ✅ SAFE      - Read-only operations');
         log('  ⚠️  CAUTION   - File modifications, system changes');
