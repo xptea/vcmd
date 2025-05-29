@@ -1,0 +1,62 @@
+{
+  "name": "vcmd",
+  "version": "1.0.0",
+  "description": "AI-powered CLI tool that converts natural language to shell commands using Cerebras API",
+  "main": "dist/index.js",
+  "bin": {
+    "vcmd": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && sed -i '1i#!/usr/bin/env node' dist/index.js && chmod +x dist/index.js",
+    "start": "bun src/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "install-global": "npm run build && npm link",
+    "uninstall-global": "npm unlink"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "inquirer": "^9.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "@types/node": "^20.17.52",
+    "@types/inquirer": "^9.0.0"
+  },
+  "keywords": [
+    "cli",
+    "command-line",
+    "natural-language",
+    "shell-commands",
+    "cerebras",
+    "ai",
+    "automation",
+    "developer-tools",
+    "terminal",
+    "bash"
+  ],
+  "author": {
+    "name": "VoidWorks",
+    "url": "https://voidworks.xyz"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/vcmd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/vcmd/issues"
+  },
+  "homepage": "https://github.com/yourusername/vcmd#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "preferGlobal": true
+}
