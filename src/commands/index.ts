@@ -30,7 +30,7 @@ class CommandManager {
         if (command) {
             await command.execute(options);
         } else {
-            throw new Error(`Command "${commandName}" not found. Use "help" to see available commands.`);
+            throw new Error(`Command "${commandName}" not found. Use "-help or -h" to see available commands.`);
         }
     }
 
