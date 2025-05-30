@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Command, CommandOptions } from '../types';
 import { CerebrasService } from '../services/cerebras';
 import { log, errorHandler } from '../utils';
@@ -20,7 +18,6 @@ export class ExplainCommand implements Command {
 
     async execute(options: CommandOptions): Promise<void> {
         try {
-            // Check if a command was provided as an argument
             const providedCommand = options._?.join(' ');
             
             let commandToAnalyze: string;
@@ -28,7 +25,6 @@ export class ExplainCommand implements Command {
             if (providedCommand) {
                 commandToAnalyze = providedCommand;
             } else {
-                // Ask user for the command
                 const answer = await inquirer.prompt([
                     {
                         type: 'input',
@@ -56,7 +52,6 @@ export class ExplainCommand implements Command {
 
         } catch (error) {
             if (error && typeof error === 'object' && 'isTtyError' in error) {
-                // Handle non-interactive environment
                 log('❌ Interactive mode not available. Please provide the command as an argument:');
                 log('Usage: vcmd -e "ping 1.1.1.1.1"');
                 return;
@@ -87,7 +82,6 @@ export class ExplainCommand implements Command {
 
         console.log('\n');
 
-        // Build menu choices
         const choices = [];
 
         if (analysis.suggestedFix) {
@@ -150,7 +144,6 @@ export class ExplainCommand implements Command {
 
         } catch (error) {
             if (error && typeof error === 'object' && 'isTtyError' in error) {
-                // Fallback for non-interactive environments
                 if (analysis.suggestedFix) {
                     console.log('💡 Suggested Fix:');
                     console.log('\x1b[32m' + analysis.suggestedFix + '\x1b[0m');

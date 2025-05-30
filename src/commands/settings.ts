@@ -7,7 +7,7 @@ export class SettingsCommand implements Command {
     name = 'settings';
     description = 'Configure API key and other settings';
 
-    async execute(options: CommandOptions): Promise<void> {
+    async execute(_options: CommandOptions): Promise<void> {
         try {
             await this.configureSettings();
         } catch (error) {

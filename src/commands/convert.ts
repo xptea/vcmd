@@ -26,11 +26,14 @@ export class ConvertCommand implements Command {
 
         try {
             log('Converting natural language to shell command...');
+            const startTime = performance.now();
             const result = await this.getCerebrasService().convertToShellCommand(query);
+            const endTime = performance.now();
+            const responseTime = (endTime - startTime) / 1000; // Convert to seconds
 
             process.stdout.write('\x1b[1A\x1b[2K');
 
-            await this.showCommandPrompt(result);
+            await this.showCommandPrompt(result, responseTime);
 
         } catch (error) {
             process.stdout.write('\x1b[1A\x1b[2K');
@@ -45,11 +48,12 @@ export class ConvertCommand implements Command {
         }
     }
 
-    private async showCommandPrompt(result: any): Promise<void> {
+    private async showCommandPrompt(result: any, responseTime?: number): Promise<void> {
         const safetyEmoji = this.getSafetyEmoji(result.safety);
         const safetyColor = this.getSafetyColor(result.safety);
 
-        console.log(`\n${safetyColor}${safetyEmoji} Safety Level: ${result.safety.toUpperCase()}\x1b[0m`);
+        const responseTimeText = responseTime ? ` | Response Time: ${responseTime.toFixed(2)}s` : '';
+        console.log(`\n${safetyColor}${safetyEmoji} Safety Level: ${result.safety.toUpperCase()}${responseTimeText}\x1b[0m`);
         console.log('\x1b[1m' + result.command + '\x1b[0m');
         console.log(`\n\x1b[90m${result.explanation}\x1b[0m\n`);
 
@@ -101,13 +105,17 @@ export class ConvertCommand implements Command {
     private async explainCommand(command: string): Promise<void> {
         try {
             log('\n📚 Getting detailed explanation...');
+            const startTime = performance.now();
             const explanation = await this.getCerebrasService().explainCommand(command);
+            const endTime = performance.now();
+            const responseTime = (endTime - startTime) / 1000;
             
             process.stdout.write('\x1b[1A\x1b[2K');
             
             console.log('\n📖 Command Explanation:');
             console.log('========================\n');
             console.log('\x1b[36m' + command + '\x1b[0m\n');
+            console.log(`\x1b[90mResponse Time: ${responseTime.toFixed(2)}s\x1b[0m\n`);
             console.log(explanation);
             console.log('\n');
         } catch (error) {
@@ -139,7 +147,6 @@ export class ConvertCommand implements Command {
             console.log('\n⚡ Executing command...\n');
             console.log('\x1b[36m' + command + '\x1b[0m\n');
 
-            // Save command to history before execution
             saveCommandHistory({
                 command,
                 timestamp: new Date().toISOString(),
@@ -167,7 +174,6 @@ export class ConvertCommand implements Command {
             childProcess.on('close', (code) => {
                 exitCode = code || 0;
                 
-                // Update command history with result
                 saveCommandHistory({
                     command,
                     timestamp: new Date().toISOString(),
@@ -211,7 +217,6 @@ export class ConvertCommand implements Command {
             console.error(error.message);
             console.log('\n💡 Tip: Run "vcmd -e" to analyze what went wrong');
             
-            // Save failed command to history
             saveCommandHistory({
                 command,
                 timestamp: new Date().toISOString(),

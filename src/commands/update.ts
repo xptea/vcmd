@@ -46,7 +46,6 @@ export class UpdateCommand implements Command {
 
     private getCurrentVersion(): string {
         try {
-            // Try to find package.json in various locations
             const possiblePaths = [
                 path.join(__dirname, '../../package.json'),
                 path.join(__dirname, '../package.json'),
@@ -60,8 +59,7 @@ export class UpdateCommand implements Command {
                 }
             }
 
-            // Fallback: try to get version from npm
-            return '1.0.0'; // Default if can't find
+            return '1.0.0';
         } catch (error) {
             return '1.0.0';
         }
@@ -75,7 +73,6 @@ export class UpdateCommand implements Command {
             return response.data.version;
         } catch (error) {
             try {
-                // Fallback to the main registry endpoint
                 const response = await axios.get('https://registry.npmjs.org/void-cmd', {
                     timeout: 5000
                 });
@@ -104,7 +101,6 @@ export class UpdateCommand implements Command {
     private async performUpdate(): Promise<void> {
         log('\n⚡ Starting automatic update...');
 
-        // Try npm first, then bun
         const updateCommands = [
             'npm update -g void-cmd',
             'bun update -g void-cmd'

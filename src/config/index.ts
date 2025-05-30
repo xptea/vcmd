@@ -52,7 +52,7 @@ export const getCerebrasConfig = (): CerebrasConfig => {
     return {
         apiKey,
         baseUrl: settings.baseUrl || process.env.CEREBRAS_BASE_URL || 'https://api.cerebras.ai/v1',
-        model: settings.model || process.env.CEREBRAS_MODEL || 'llama3.1-8b'
+        model: settings.model || process.env.CEREBRAS_MODEL || 'llama-4-scout-17b-16e-instruct'
     };
 };
 
@@ -78,7 +78,6 @@ export const loadCommandHistory = (): CommandHistoryEntry[] => {
             return Array.isArray(history) ? history : [];
         }
     } catch (error) {
-        // Ignore errors, return empty array
     }
     return [];
 };
@@ -88,12 +87,10 @@ export const saveCommandHistory = (entry: CommandHistoryEntry): void => {
         const history = loadCommandHistory();
         history.push(entry);
         
-        // Keep only last 50 commands
         const trimmedHistory = history.slice(-50);
         
         fs.writeFileSync(HISTORY_FILE, JSON.stringify(trimmedHistory, null, 2));
     } catch (error) {
-        // Ignore save errors to not interrupt command execution
     }
 };
 
