@@ -5,24 +5,24 @@ A powerful CLI tool that converts natural language descriptions into shell comma
 [![npm version](https://badge.fury.io/js/void-cmd.svg)](https://www.npmjs.com/package/void-cmd)
 [![npm downloads](https://img.shields.io/npm/dm/void-cmd.svg)](https://www.npmjs.com/package/void-cmd)
 
-## ✨ Features
+##  Features
 
-- 🤖 **AI-Powered Command Generation** - Convert natural language to shell commands using Cerebras AI
-- 🖥️ **OS-Aware** - Automatically detects your operating system and generates appropriate commands
-- 🛡️ **Safety Classification** - Commands are classified as safe, caution, or dangerous
-- ⚡ **Fast Execution** - Built with Bun runtime for optimal performance
-- 📚 **Command Explanation** - Get detailed explanations of generated commands
-- 🔧 **Command Analysis** - Analyze and fix failed commands with AI assistance
-- 🌍 **Global CLI** - Install once, use anywhere with `vcmd`
-- ⚙️ **Interactive Configuration** - Easy setup with guided prompts
-- 💬 **Natural Syntax** - Use intuitive "can you" syntax or direct requests
-- 🔄 **Auto-Update** - Keep your CLI tool up to date with built-in update command
+-  **AI-Powered Command Generation** - Convert natural language to shell commands using Cerebras AI
+-  **OS-Aware** - Automatically detects your operating system and generates appropriate commands
+-  **Safety Classification** - Commands are classified as safe, caution, or dangerous
+-  **Fast Execution** - Built with Bun runtime for optimal performance
+-  **Command Explanation** - Get detailed explanations of generated commands
+-  **Command Analysis** - Analyze and fix failed commands with AI assistance
+-  **Global CLI** - Install once, use anywhere with `vcmd`
+-  **Interactive Configuration** - Easy setup with guided prompts
+-  **Natural Syntax** - Use intuitive "can you" syntax or direct requests
+-  **Auto-Update** - Keep your CLI tool up to date with built-in update command
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Install from npm
 
-**📦 Package:** [void-cmd on npm](https://www.npmjs.com/package/void-cmd)
+** Package:** [void-cmd on npm](https://www.npmjs.com/package/void-cmd)
 
 ```bash
 # Install globally with npm
@@ -129,18 +129,18 @@ ping: 1.1.1.1.1: Name or service not known
 $ vcmd -e "ping 1.1.1.1.1"
 ==== VCMD By Voidworks.xyz ====
 
-🛠️  Command Analysis & Suggestions:
+  Command Analysis & Suggestions:
 ====================================
 
-🔎 Original Command: ping 1.1.1.1.1
+ Original Command: ping 1.1.1.1.1
 
-📋 Analysis:
+ Analysis:
 The command has a malformed IP address. "1.1.1.1.1" is not a valid IPv4 address format...
 
-💡 Suggested Fix:
+ Suggested Fix:
 ping -c 4 1.1.1.1
 
-🔄 Alternative Commands:
+ Alternative Commands:
 1. ping -c 4 8.8.8.8
 2. ping -c 4 google.com
 
